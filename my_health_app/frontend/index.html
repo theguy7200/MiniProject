@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Health - Advanced Disease & Risk Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" onclick="switchTab('home')">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Aura Health</span>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn active" data-target="home">Home</button>
+                <button class="nav-btn" data-target="predict">Predict</button>
+                <button class="nav-btn" data-target="history">History</button>
+                <button class="nav-btn" data-target="about">About</button>
+                <button class="nav-btn" data-target="portal">Doctor Portal</button>
+                <button class="nav-btn" data-target="contact">Contact</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <!-- ================= HOME SECTION ================= -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="badge">Next-Gen Healthcare AI</div>
+                    <h1>Predict Diseases With <span>Clinical Precision</span></h1>
+                    <p>Aura Health harnesses the power of cutting-edge AI to deliver instant, clinic-grade disease predictions. By analyzing complex patterns in your vitals and symptoms, we empower you with actionable health insights in seconds.</p>
+                    <div class="hero-actions">
+                        <button class="primary-btn lg" onclick="switchTab('predict')">Start Prediction <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="secondary-btn lg" onclick="switchTab('about')">Learn More</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card c1 glass-panel">
+                        <i class="fa-solid fa-microscope text-blue"></i>
+                        <h4>40 Clinical Features</h4>
+                    </div>
+                    <div class="floating-card c2 glass-panel">
+                        <i class="fa-solid fa-bullseye text-purple"></i>
+                        <h4>92% Risk Accuracy</h4>
+                    </div>
+                    <div class="floating-card c3 glass-panel">
+                        <i class="fa-solid fa-shield-virus text-green"></i>
+                        <h4>14 Diseases Tracked</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="how-it-works">
+                <h2>How It Works</h2>
+                <div class="steps-grid">
+                    <div class="step-card glass-panel">
+                        <div class="step-number">1</div>
+                        <h3>Input Data</h3>
+                        <p>Enter patient symptoms, vital signs, and lab reports into our secure form.</p>
+                    </div>
+                    <div class="step-card glass-panel">
+                        <div class="step-number">2</div>
+                        <h3>AI Analysis</h3>
+                        <p>Our Random Forest and Gradient Boosting models analyze the 40+ clinical indicators.</p>
+                    </div>
+                    <div class="step-card glass-panel">
+                        <div class="step-number">3</div>
+                        <h3>Get Results</h3>
+                        <p>Instantly view the predicted disease, confidence score, and NEWS2 severity rating.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PREDICT SECTION ================= -->
+        <section id="predict" class="page-section">
+            <header class="section-header">
+                <h2>Clinical Assessment Form</h2>
+                <p>Fill out the patient details below to generate an AI prediction.</p>
+            </header>
+
+            <form id="prediction-form" class="glass-panel">
+                <div class="form-grid">
+                    <!-- SYMPTOMS SECTION -->
+                    <section class="form-section symptoms-section">
+                        <h2><i class="fa-solid fa-head-side-cough"></i> Symptoms</h2>
+                        <p class="section-desc">Select all that apply</p>
+                        
+                        <div class="checkbox-grid">
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_fever"> <span class="checkmark"></span> Fever</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_headache"> <span class="checkmark"></span> Headache</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_nausea"> <span class="checkmark"></span> Nausea</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_vomiting"> <span class="checkmark"></span> Vomiting</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_fatigue"> <span class="checkmark"></span> Fatigue</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_joint_pain"> <span class="checkmark"></span> Joint Pain</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_skin_rash"> <span class="checkmark"></span> Skin Rash</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_cough"> <span class="checkmark"></span> Cough</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_weight_loss"> <span class="checkmark"></span> Weight Loss</label>
+                            <label class="custom-checkbox"><input type="checkbox" name="symptom_yellow_eyes"> <span class="checkmark"></span> Yellow Eyes</label>
+                            
+                            <!-- Targeted Indicators -->
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_chills_cyclical"> <span class="checkmark"></span> Cyclical Chills</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_night_sweats"> <span class="checkmark"></span> Night Sweats</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_dark_urine"> <span class="checkmark"></span> Dark Urine</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_positional_dizziness"> <span class="checkmark"></span> Dizziness</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_sudden_weakness"> <span class="checkmark"></span> Sudden Weakness</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_neck_stiffness"> <span class="checkmark"></span> Neck Stiffness</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_frequent_urination"> <span class="checkmark"></span> Frequent Urination</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_shortness_of_breath"> <span class="checkmark"></span> Shortness of Breath</label>
+                            <label class="custom-checkbox targeted"><input type="checkbox" name="symptom_retro_orbital_pain"> <span class="checkmark"></span> Pain Behind Eyes</label>
+                        </div>
+                    </section>
+
+                    <!-- VITALS SECTION -->
+                    <section class="form-section vitals-section">
+                        <h2><i class="fa-solid fa-stethoscope"></i> Vitals <span class="optional-badge">Optional</span></h2>
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label>Heart Rate (bpm)</label>
+                                <input type="number" name="vital_Heart_Rate" placeholder="e.g. 80">
+                            </div>
+                            <div class="input-group">
+                                <label>Systolic BP (mmHg)</label>
+                                <input type="number" name="vital_Systolic_BP" placeholder="e.g. 120">
+                            </div>
+                            <div class="input-group">
+                                <label>Respiratory Rate</label>
+                                <input type="number" name="vital_Respiratory_Rate" placeholder="e.g. 18">
+                            </div>
+                            <div class="input-group">
+                                <label>Oxygen Saturation (%)</label>
+                                <input type="number" name="vital_Oxygen_Saturation" placeholder="e.g. 98">
+                            </div>
+                            <div class="input-group">
+                                <label>Temperature (°C)</label>
+                                <input type="number" step="0.1" name="vital_Temperature" placeholder="e.g. 37.0">
+                            </div>
+                            <div class="input-group">
+                                <label>O2 Scale</label>
+                                <input type="number" step="0.1" name="vital_O2_Scale" placeholder="e.g. 1.0" value="1.0">
+                            </div>
+                            
+                            <div class="input-group full-width toggle-group">
+                                <label>Patient on Oxygen?</label>
+                                <label class="switch">
+                                    <input type="checkbox" name="vital_On_Oxygen">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+                            <div class="input-group full-width">
+                                <label>Consciousness Level (AVPU)</label>
+                                <select name="vital_Consciousness">
+                                    <option value="A">A - Alert</option>
+                                    <option value="C">C - Confusion (New)</option>
+                                    <option value="V">V - Voice Responsive</option>
+                                    <option value="P">P - Pain Responsive</option>
+                                    <option value="U">U - Unresponsive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- LABS SECTION -->
+                    <section class="form-section labs-section">
+                        <h2><i class="fa-solid fa-vial"></i> Lab Tests <span class="optional-badge">Optional</span></h2>
+                        <div class="input-grid">
+                            <div class="input-group">
+                                <label>ALT (U/L) - Liver</label>
+                                <input type="number" step="0.1" name="lab_ALT_UL" placeholder="e.g. 25.0">
+                            </div>
+                            <div class="input-group">
+                                <label>WBC (K/uL) - Immunity</label>
+                                <input type="number" step="0.1" name="lab_WBC_K_uL" placeholder="e.g. 8.0">
+                            </div>
+                            <div class="input-group">
+                                <label>TSH (mIU/L) - Thyroid</label>
+                                <input type="number" step="0.1" name="lab_TSH_mIUL" placeholder="e.g. 2.1">
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" id="submit-btn" class="primary-btn">
+                        <span class="btn-text">Generate Health Prediction</span>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <div class="spinner"></div>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- ================= HISTORY SECTION ================= -->
+        <section id="history" class="page-section">
+            <header class="section-header">
+                <h2>Patient History Dashboard</h2>
+                <p>Locally saved prediction results for quick reference.</p>
+            </header>
+            
+            <div class="glass-panel">
+                <div class="history-controls">
+                    <button id="clear-history-btn" class="danger-btn"><i class="fa-solid fa-trash"></i> Clear History</button>
+                </div>
+                <div class="table-container">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date & Time</th>
+                                <th>Predicted Disease</th>
+                                <th>Confidence</th>
+                                <th>Risk Level</th>
+                                <th>Severity Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                    <div id="no-history-msg" class="empty-state">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <p>No patient history found. Run a prediction to see it here.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ABOUT SECTION ================= -->
+        <section id="about" class="page-section">
+            <header class="section-header">
+                <h2>About Aura Health</h2>
+                <p>Bridging the gap in global healthcare access</p>
+            </header>
+            
+            <div class="about-grid">
+                <!-- Our Mission (New) -->
+                <div class="glass-panel text-content" style="grid-column: 1 / -1; margin-bottom: -1rem;">
+                    <h3><i class="fa-solid fa-earth-americas" style="color: var(--accent-blue); margin-right: 10px;"></i> Our Mission</h3>
+                    <p>In many rural and underserved areas globally, access to medical professionals is severely limited, leading to delayed diagnoses and preventable complications. Aura Health was created to democratize healthcare. By providing an accessible, instant, and highly accurate preliminary diagnosis tool, we empower individuals in remote regions to understand their health risks and seek urgent care when it truly matters.</p>
+                </div>
+
+                <div class="glass-panel text-content">
+                    <h3>Dataset & Features</h3>
+                    <p>The model was trained on a comprehensive, high-quality clinical dataset sourced from the <strong>UCI Machine Learning Repository</strong>. Multiple validated medical datasets were intelligently combined to ensure broad coverage across various demographics and disease profiles.</p>
+                    <p>It analyzes <strong>43 features</strong> encompassing base symptoms, targeted indicators (like cyclical chills), vital signs, lab tests, and engineered clinical ratios like Shock Index and NEWS2 severity score.</p>
+                </div>
+                
+                <div class="glass-panel text-content">
+                    <h3>Model Architecture</h3>
+                    <p>We train three distinct models: Random Forest, Gradient Boosting, and Logistic Regression. The system automatically evaluates all three and deploys the highest-performing model.</p>
+                    <div class="metrics-list">
+                        <div class="metric-item">
+                            <span class="label">Disease Prediction</span>
+                            <span class="value text-blue">~87% Accuracy</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="label">Risk Level Prediction</span>
+                            <span class="value text-purple">~92% Accuracy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= DOCTOR PORTAL ================= -->
+        <section id="portal" class="page-section">
+            <div class="auth-container glass-panel">
+                <div class="auth-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                <h2>Doctor Portal Login</h2>
+                <p>Access advanced analytics and patient records.</p>
+                <form id="login-form">
+                    <div class="input-group">
+                        <label>Medical ID / Email</label>
+                        <input type="text" placeholder="dr.smith@hospital.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="button" class="primary-btn full-width" onclick="alert('Mock Login: In a real app, this would authenticate against a database.')">Secure Login <i class="fa-solid fa-lock"></i></button>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact" class="page-section">
+            <header class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have questions about Aura Health API integration?</p>
+            </header>
+            <div class="contact-grid">
+                <div class="glass-panel contact-info">
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Email Support</h4>
+                            <p>api@aurahealth.ai</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (800) 555-0199</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Headquarters</h4>
+                            <p>100 AI Avenue, Tech Park<br>San Francisco, CA 94107</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-panel">
+                    <form id="contact-form">
+                        <div class="input-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="Your Name">
+                        </div>
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="Your Email">
+                        </div>
+                        <div class="input-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="button" class="primary-btn" onclick="alert('Message sent! We will get back to you shortly.')">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTS MODAL -->
+        <div id="results-modal" class="modal-overlay hidden">
+            <div class="modal-content glass-panel">
+                <button id="close-modal" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                <div class="results-header">
+                    <h2>Prediction Results</h2>
+                    <div id="risk-badge" class="risk-badge">Moderate Risk</div>
+                </div>
+                
+                <div class="results-body">
+                    <div class="result-card disease-card">
+                        <div class="icon-wrap"><i class="fa-solid fa-virus-covid"></i></div>
+                        <div class="info">
+                            <p class="label">Predicted Condition</p>
+                            <h3 id="res-disease">-</h3>
+                            <p class="confidence">Confidence: <span id="res-d-conf">-</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card severity-card">
+                        <div class="icon-wrap"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="info">
+                            <p class="label">Severity Score</p>
+                            <h3 id="res-severity">-</h3>
+                            <p class="confidence">Out of 20 (NEWS2 Based)</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card recommendation-card">
+                        <div class="icon-wrap"><i class="fa-solid fa-user-doctor"></i></div>
+                        <div class="info">
+                            <p class="label">Doctor Visit Recommendation</p>
+                            <p id="res-recommendation" style="font-weight: 500; font-size: 1.1rem; color: #f8fafc; margin-top: 0.3rem;">-</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-bar">
+                    <button id="reset-btn" class="secondary-btn">New Patient</button>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <h2>Aura Health</h2>
+            </div>
+            <p>&copy; 2026 Aura Health AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
